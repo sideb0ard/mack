@@ -1,7 +1,7 @@
 /*
 ** Tell
 ** Tells an application commands.
-*/
+ */
 
 package mack
 
@@ -16,9 +16,9 @@ package mack
 //
 //  application string   // Required - What application the system will tell to
 //  commands string      // Required - What command lines the system will tell
-func Tell(application string, commands ...string) error {
-	_, err := run(buildTell(application, commands...))
-	return err
+func Tell(application string, commands ...string) (string, error) {
+	output, err := run(buildTell(application, commands...))
+	return output, err
 }
 
 // Parse the Tell options and build the command
